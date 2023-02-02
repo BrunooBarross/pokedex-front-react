@@ -20,7 +20,7 @@ const SignIn = () => {
         try {
             setLoad(true);
             const response = await signIn(data.email, data.password);
-            localStorage.setItem("userData", JSON.stringify({ token: response.token, userEmail: response.userName }));
+            localStorage.setItem("userData", JSON.stringify({ token: response.token,  imageUrl: response.imageUrl }));
             toast.success("Login Success");
             navigate('/home');
         } catch (error) {
@@ -28,7 +28,7 @@ const SignIn = () => {
                 toast.error("System unavailable!");
             }
             if (error.response.status === 422 || error.response.status === 401) {
-                toast.warning("Error! Check the data");
+                toast.error("Incorrect email or password");
             }
             setLoad(false);
         }

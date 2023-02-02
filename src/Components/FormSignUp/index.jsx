@@ -22,7 +22,7 @@ const FormSignUp = ({ register, setRegister, load, registerUser }) => {
                 title='A senha deve conter no mínimo 4 caracteres'
                 onChange={e => setRegister({ ...register, password: e.target.value })}
                 disabled={load ? true : false} required />
-            <input type="text" pattern="(http(s?):\/\/.*\.(?:png|jpg))" name="imageUrl" placeholder='your beautiful picture'
+            <input type="text" pattern="(http(s?):\/\/.*\.(?:png|jpg|jpeg))" name="imageUrl" placeholder='your beautiful picture'
                 title='Link deve seguir o padão http, https, formatos jpg e png'
                 onChange={e => setRegister({ ...register, imageUrl: e.target.value })}
                 disabled={load ? true : false} required />
