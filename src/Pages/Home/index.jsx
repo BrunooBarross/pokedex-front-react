@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(() => {
         const getPokemons = () => {
             const endpoints = [];
-            for (let i = 1; i < 151; i++) {
+            for (let i = 1; i < 250; i++) {
                 endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
             }
 

@@ -16,7 +16,7 @@ const Pokemon = () => {
         const requisicao = axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`);
         requisicao.then(response => {
             setPokemon(response.data);
-        }).catch(() => { toast.error("No pokemon found!") });;
+        }).catch(() => { toast.error("No pokemon found!") });
     }, [idPokemon]);
 
 

@@ -28,7 +28,7 @@ const Section = styled.section`
         margin-bottom: 10px;
     }
    
-    @media (max-width: 888px) {	  
+    @media (max-width: 993px) {	  
         justify-content: center;
     }
 `
@@ -67,6 +67,7 @@ const Div = styled.div`
     @media (max-width: 986px) {	  
         width: 380px;
         height: 380px;
+        margin-bottom: 15px;
     }
 
     @media (max-width: 507px) {	  
@@ -86,6 +87,7 @@ const SectionRight = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #fff;
+    width: 50%;
     
     button {
         width: 170px;
@@ -113,7 +115,21 @@ const SectionRight = styled.div`
         font-size: 125%;
     }
 
-    @media (max-width: 877px) {	  
+    @media (max-width: 933px) {	  
+        width: 90%;
+    }
+`;
+
+const Text = styled.label`
+    width: 90%;
+    text-align: center;
+    font-size: 16px;
+
+    @media (max-width: 993px) {	  
+        width: 60%;
+    }
+
+    @media (max-width: 759px) {	  
         width: 90%;
     }
 `;
@@ -183,5 +199,6 @@ export {
     CaretBack,
     TableInfo,
     SectionRight,
-    Type
+    Type,
+    Text
 }

@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ChartStats from './ChartStats';
+import axios from 'axios';
+import { useEffect, useState } from "react";
 
 import { convertNumber, converHeight, converWeight, caseFirstLetter } from "../../Utils/Functions"
 
@@ -11,11 +13,20 @@ import {
     CaretBack,
     TableInfo,
     SectionRight,
-    Type
+    Type,
+    Text
 } from "./styled"
 
 const PokemonInfo = ({ id, name, pokemon }) => {
     const navigate = useNavigate();
+    const [text, setText] = useState("Carregando...");
+
+    useEffect(() => {
+        const requisicao = axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}/`);
+        requisicao.then(response => {
+            setText(response.data.flavor_text_entries[9].flavor_text);
+        })
+    }, [id]);
 
     const typeHandler = (types) => {
         if (types[1]) {
@@ -38,6 +49,7 @@ const PokemonInfo = ({ id, name, pokemon }) => {
                     <img src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${convertNumber(id)}.png`} alt={`${name}`} />
                 </Div>
                 <SectionRight>
+                    <Text>{text}</Text>
                     <button>Add Pokemon</button>
                     <TableInfo>
                         <div className='column'>
