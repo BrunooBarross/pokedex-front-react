@@ -6,7 +6,7 @@ const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 80px;
+    height: 70px;
     background-color: #1a1919;
     position: sticky;
     top: 0;
@@ -31,8 +31,8 @@ const Container = styled.div`
             display: none;
         }  
         img{
-        width: 40px;
-        margin-left: 20px;
+            width: 40px;
+            margin-left: 20px;
         }
     }
 `
@@ -128,7 +128,7 @@ const QuickAccess = styled.span`
     align-items: center;
     position: absolute;
     display: ${({ display }) => display};
-    top: 72px;
+    top: 65px;
     right: 0;
     span,
     a {
