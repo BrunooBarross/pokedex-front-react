@@ -6,6 +6,7 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
     min-height: 100vh;
     background: rgb(250,21,21);
     background: radial-gradient(circle, rgba(250,21,21,1) 0%, rgba(3,18,130,1) 100%);
@@ -15,7 +16,6 @@ const Main = styled.div`
     margin-top: 10px;
     margin-bottom: 20px;
     width: 970px;
-    min-height: 100%;
     background-color: white;
     border-radius: 20px;
 

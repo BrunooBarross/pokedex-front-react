@@ -26,7 +26,7 @@ const Home = () => {
         }
         getPokemons();
     }, [reload]);
-
+    
     const pokemonsFilter = (name) => {
         let filteredPokemons = [];
         if (name === "") {
@@ -52,6 +52,7 @@ const Home = () => {
                     {pokemons.map((pokemon, key) => (
                         <PokemonCard
                             key={key}
+                            id={pokemon.data.id}
                             name={pokemon.data.name}
                             pokeImage={pokemon.data.sprites.front_default}
                             types={pokemon.data.types}
