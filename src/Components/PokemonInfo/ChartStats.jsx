@@ -13,7 +13,7 @@ const ChartStats = ({ name, hp, attack, defense, specialA, specialD, speed }) =>
         originalWarn(...args);
     };
     const data = [
-        ["Stats" + ` ${name}`, "Level"],
+        [`Stats ${name}`, "Level"],
         ["HP", hp],
         ["Attack", attack],
         ["Defense", defense],

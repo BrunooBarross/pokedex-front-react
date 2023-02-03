@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import CreateTeamModal from "../CreateTeamModal";
 
 import logo from '../../assets/images/logo.svg'
 
@@ -15,6 +16,7 @@ const Header = () => {
     const navigate = useNavigate();
     const { token, imageUrl } = JSON.parse(localStorage.getItem('userData'));
     const [quickAccess, setQuickAccess] = useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
 
     function logout() {
         localStorage.removeItem("userData")
@@ -23,6 +25,7 @@ const Header = () => {
 
     return (
         <Container>
+            <CreateTeamModal modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen}></CreateTeamModal>
             <div className='div-logo' onClick={() => { navigate('/home') }}>
                 <img src={`${logo}`} alt="logo" />
                 <span className='logo'>Pokédex</span>
@@ -34,7 +37,7 @@ const Header = () => {
                 <li onClick={() => { navigate('/teams') }}><ion-icon name="document-outline"></ion-icon>
                     TEAMS
                 </li>
-                <li>
+                <li onClick={() => setModalIsOpen(true)}>
                     <ion-icon name="add-circle-outline"></ion-icon>
                     ADD
                 </li>
