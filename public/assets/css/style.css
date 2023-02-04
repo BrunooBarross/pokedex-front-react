@@ -4,6 +4,7 @@
     box-sizing: border-box !important;
 }
 body {
+    height: 100vh;
     font-family: 'Lato';
     background-color: #333333;
 }
