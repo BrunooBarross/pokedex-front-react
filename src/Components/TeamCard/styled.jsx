@@ -2,12 +2,11 @@ import styled from "styled-components"
 
 const Container = styled.div`
     width: 85%;
-    height: 180px;
+    min-height: 180px;
     border-radius: 20px;
     margin-top: 40px;
     background-color: #30126e;
 `
-
 const Header = styled.div`
     position: relative;
     display: flex;
@@ -41,6 +40,13 @@ const Header = styled.div`
     }
 `
 
+const Section = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+`
+
 const Notification = styled.div`
     margin-top: 45px;
     text-align: center;
@@ -53,8 +59,53 @@ const Notification = styled.div`
     }
 `
 
+const Cards = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    width: 80px;
+    border-radius: 10px;
+  
+    :hover {
+        color: #2503bb; 
+        background-color: rgb(97,20,89);
+    }
+`
+
+const Imagens = styled.img`
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    cursor: pointer;
+`
+
+const Names = styled.h3`
+    text-align: center;
+    font-size: 70%;
+    font-weight: 600;
+    font-family: "Flexo-Demi",arial,sans-serif;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+`
+
+const Type = styled.h4`
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3px;
+    margin-right: 10px;
+    font-size: 10px;
+    color: #fff;
+`
+
 export {
     Container,
+    Section,
     Header,
-    Notification
-}
+    Notification,
+    Cards,
+    Imagens,
+    Names,
+    Type
+} 

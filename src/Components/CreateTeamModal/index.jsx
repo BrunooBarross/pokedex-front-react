@@ -33,8 +33,8 @@ const CreateTeamModal = ({ handlerModalTeam, setHandlerModalTeam }) => {
         event.preventDefault();
         try {
             await createTeam(token, title);
-            toast.success("Team successfully added");
             setReloadPage(!reloadPage);
+            toast.success("Team successfully added");
             setHandlerModalTeam(false);
             navigate('/teams');
         } catch (error) {

@@ -18,6 +18,7 @@ const Teams = () => {
     useEffect(() => {
         const teams = async () => {
             try {
+                setDataTeams(null)
                 const response = await getTeams(token);
                 setDataTeams(response);
             } catch (error) {
@@ -26,7 +27,6 @@ const Teams = () => {
         }
         teams();
     }, [token, reloadPage]);
-    console.log(dataTeams)
 
     if (dataTeams === null) {
         return (
@@ -42,7 +42,7 @@ const Teams = () => {
                     <Label>You don't have teams, <span onClick={() => setHandlerModalTeam(true)}>click here</span> to add</Label>
                     :
                     <>
-                        <button class="btn primary" onClick={() => setHandlerModalTeam(true)}>Add Team</button>
+                        <button className="btn primary" onClick={() => setHandlerModalTeam(true)}>Add Team</button>
                         {
                             dataTeams.map((team, key) => (
                                 <TeamCard
