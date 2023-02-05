@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import Header from "../../Components/Header";
 import PokemonCard from "../../Components/PokemonCard";
 
+import { useContext } from "react";
+import StateContext from "../../Contexts/StateContext"
+
+import ListTeamsModal from "../../Components/ListTeamsModal";
+
 import {
     Container,
     Main,
@@ -13,6 +18,9 @@ import {
 const Home = () => {
     const [pokemons, setPokemons] = useState([]);
     const [reload, setReload] = useState(false);
+    const [pokeData, setPokeData] = useState({ pokemonId: '', species: '' });
+
+    const { handlerListTeam, setHandlerListTeam } = useContext(StateContext);
 
     useEffect(() => {
         const getPokemons = () => {
@@ -26,7 +34,7 @@ const Home = () => {
         }
         getPokemons();
     }, [reload]);
-    
+
     const pokemonsFilter = (name) => {
         let filteredPokemons = [];
         if (name === "") {
@@ -43,9 +51,15 @@ const Home = () => {
     return (
         <Container>
             <Header />
+            <ListTeamsModal
+                pokemonId={pokeData.pokemonId}
+                handlerListTeam={handlerListTeam}
+                setHandlerListTeam={setHandlerListTeam}
+                species={pokeData.species}
+            />
             <Search>
-                <input type="text" name="search" placeholder=" Search.." 
-                    onChange={(e) => pokemonsFilter(e.target.value)}/>
+                <input type="text" name="search" placeholder=" Search.."
+                    onChange={(e) => pokemonsFilter(e.target.value)} />
             </Search>
             <Main>
                 <CardsGrid>
@@ -56,6 +70,9 @@ const Home = () => {
                             name={pokemon.data.name}
                             pokeImage={pokemon.data.sprites.front_default}
                             types={pokemon.data.types}
+                            species={pokemon.data.species.name}
+                            setPokeData={setPokeData}
+                            setHandlerListTeam={setHandlerListTeam}
                         />
                     ))}
                 </CardsGrid>

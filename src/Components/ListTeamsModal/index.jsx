@@ -14,7 +14,7 @@ import { Section, Div, NoTeam } from './styled';
 const ListTeamsModal = ({ pokemonId, handlerListTeam, setHandlerListTeam, species }) => {
     const { token } = JSON.parse(localStorage.getItem('userData'));
     const [dataTeams, setDataTeams] = useState(null);
-    const { handlerModalTeam, setHandlerModalTeam } = useContext(StateContext);
+    const { handlerModalTeam, setHandlerModalTeam, reloadPage } = useContext(StateContext);
     const [loadPage, setLoadPage] = useState(false);
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const ListTeamsModal = ({ pokemonId, handlerListTeam, setHandlerListTeam, specie
             }
         }
         teams();
-    }, [token, loadPage]);
+    }, [token, loadPage, reloadPage]);
     
     const customStyles = {
         content: {
