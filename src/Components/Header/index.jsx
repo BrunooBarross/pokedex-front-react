@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import CreateTeamModal from "../CreateTeamModal";
 import { useContext } from "react";
 import StateContext from "../../Contexts/StateContext";
+import pokedex from "../../assets/images/pokedex.png"
 
 import logo from '../../assets/images/logo.svg'
 
@@ -17,12 +18,24 @@ import {
 const Header = () => {
     const navigate = useNavigate();
     const { token, imageUrl } = JSON.parse(localStorage.getItem('userData'));
-    const { handlerModalTeam, setHandlerModalTeam } = useContext(StateContext);
+    const { handlerModalTeam, setHandlerModalTeam, setHandlerListTeam } = useContext(StateContext);
     const [quickAccess, setQuickAccess] = useState(false);
 
     function logout() {
-        localStorage.removeItem("userData")
-        navigate("/signin")
+        localStorage.removeItem("userData");
+        navigate("/signin");
+    }
+
+    const navigateHome = () => {
+        setHandlerListTeam(false);
+        setHandlerModalTeam(false);
+        navigate('/home');
+    }
+
+    const navigateTeams = () => {
+        setHandlerModalTeam(false);
+        setHandlerListTeam(false);
+        navigate('/teams');
     }
 
     return (
@@ -33,10 +46,10 @@ const Header = () => {
                 <span className='logo'>Pokédex</span>
             </div>
             <Ul>
-                <li onClick={() => { navigate('/home') }}><ion-icon name="home-outline"></ion-icon>
-                    HOME
+                <li onClick={() => { navigateHome() }}><img className="dex-logo" src={`${pokedex}`} alt="pokedex" />
+                    POKEMONS
                 </li>
-                <li onClick={() => { navigate('/teams') }}><ion-icon name="document-outline"></ion-icon>
+                <li onClick={() => { navigateTeams() }}><ion-icon name="document-outline"></ion-icon>
                     TEAMS
                 </li>
                 <li onClick={() => setHandlerModalTeam(true)}>

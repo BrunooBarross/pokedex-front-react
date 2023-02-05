@@ -11,20 +11,27 @@ const Container = styled.div`
     position: sticky;
     top: 0;
     z-index: 1;
-    
+
     .div-logo{
         display: flex;
         align-items: center;
         cursor: pointer;
     }
+
     span{
         margin-left: 9px;
         color: #fff;
         font-size: 20px;
     }
+
     img{
         width: 45px;
         margin-left: 30px;
+    }
+
+    .dex-logo{
+        width: 28px;
+        margin-right: 3px
     }
     
     @media (max-width: 575px) {	

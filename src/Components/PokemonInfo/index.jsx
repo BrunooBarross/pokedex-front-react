@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import ChartStats from './ChartStats';
 import axios from 'axios';
 import { useEffect, useState } from "react";
+import ListTeamsModal from "../ListTeamsModal";
+import { useContext } from "react";
+import StateContext from "../../Contexts/StateContext"
 
 import { convertNumber, converHeight, converWeight, caseFirstLetter } from "../../Utils/Functions"
-
 
 import {
     Title,
@@ -19,6 +21,7 @@ import {
 
 const PokemonInfo = ({ id, name, pokemon }) => {
     const navigate = useNavigate();
+    const { handlerListTeam, setHandlerListTeam } = useContext(StateContext);
     const [text, setText] = useState("Carregando...");
 
     useEffect(() => {
@@ -37,6 +40,12 @@ const PokemonInfo = ({ id, name, pokemon }) => {
 
     return (
         <>
+            <ListTeamsModal
+                pokemonId={id}
+                handlerListTeam={handlerListTeam}
+                setHandlerListTeam={setHandlerListTeam}
+                species={pokemon.species.name}
+            />
             <Title>{name[0].toUpperCase() + name.substring(1)} <span>N° {convertNumber(id)}</span></Title>
             <Section>
                 <Div>
@@ -50,7 +59,7 @@ const PokemonInfo = ({ id, name, pokemon }) => {
                 </Div>
                 <SectionRight>
                     <Text>{text}</Text>
-                    <button>Add Pokemon</button>
+                    <button onClick={() => setHandlerListTeam(true)}>Add Pokemon</button>
                     <TableInfo>
                         <div className='column'>
                             <h3>Height</h3>

@@ -14,9 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function App() {
     const [reloadPage, setReloadPage] = useState(false);
     const [handlerModalTeam, setHandlerModalTeam] = useState(false);
+    const [handlerListTeam, setHandlerListTeam] = useState(false);
 
     return (
-        <StateContext.Provider value={{reloadPage, setReloadPage, handlerModalTeam, setHandlerModalTeam}}>
+        <StateContext.Provider value={{reloadPage, setReloadPage, handlerModalTeam, setHandlerModalTeam, handlerListTeam, setHandlerListTeam}}>
             < ToastContainer />
             <BrowserRouter>
                 <Routes>

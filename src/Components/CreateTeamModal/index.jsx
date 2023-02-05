@@ -20,7 +20,7 @@ const CreateTeamModal = ({ handlerModalTeam, setHandlerModalTeam }) => {
         content: {
             width: '80%',
             height: '250px',
-            top: '25%',
+            top: '29%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
@@ -36,6 +36,12 @@ const CreateTeamModal = ({ handlerModalTeam, setHandlerModalTeam }) => {
             setReloadPage(!reloadPage);
             toast.success("Team successfully added");
             setHandlerModalTeam(false);
+            let pathname = window.location.pathname;
+            setReloadPage()
+            const finalUrl = pathname.slice(pathname.length - 4);
+            if (finalUrl === "info"){
+                return;
+            }
             navigate('/teams');
         } catch (error) {
             if (error.response.status === 409) {

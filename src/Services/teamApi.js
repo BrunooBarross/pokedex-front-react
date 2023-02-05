@@ -25,3 +25,16 @@ export async function deleteTeamById(token, id) {
         }
     });
 }
+
+export async function insertPokemonTeam(token, pokemonId, teamId, species) {
+    return await api.post(`team/insert/pokemon`,
+        {
+            pokemonId,
+            teamId,
+            species
+        }, {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    });
+}

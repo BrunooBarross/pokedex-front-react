@@ -4,7 +4,8 @@ const Container = styled.div`
     width: 85%;
     min-height: 180px;
     border-radius: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #30126e;
 `
 const Header = styled.div`

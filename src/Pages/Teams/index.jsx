@@ -14,7 +14,7 @@ const Teams = () => {
     const { reloadPage, setReloadPage, setHandlerModalTeam } = useContext(StateContext);
     const { token } = JSON.parse(localStorage.getItem('userData'));
     const [dataTeams, setDataTeams] = useState(null);
-
+    
     useEffect(() => {
         const teams = async () => {
             try {

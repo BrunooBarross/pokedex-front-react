@@ -16,7 +16,7 @@ const TeamCard = ({ token, reloadPage, setReloadPage, id, title, pokemons }) => 
         const getPokemons = () => {
             const endpoints = [];
             for (let i = 0; i < pokemons.length; i++) {
-                endpoints.push(`https://pokeapi.co/api/v2/pokemon/${pokemons[i].id}`)
+                endpoints.push(`https://pokeapi.co/api/v2/pokemon/${pokemons[i].pokemonId}`)
             }
 
             axios.all(endpoints.map((endpoint) => axios.get(endpoint)))
@@ -25,7 +25,7 @@ const TeamCard = ({ token, reloadPage, setReloadPage, id, title, pokemons }) => 
         if (pokemons.length > 0) {
             getPokemons();
         }
-    }, [pokemons]);
+    }, [pokemons, reloadPage]);
 
     const deleteTeam = async () => {
         try {

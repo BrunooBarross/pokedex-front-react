@@ -19,7 +19,7 @@ const Main = styled.div`
     margin-top: 10px;
     margin-bottom: 20px;
     width: 970px;
-    height: 100vh;
+    min-height: 100vh;
     background-color: white;
     border-radius: 20px;
 
