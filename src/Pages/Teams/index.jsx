@@ -6,15 +6,17 @@ import StateContext from "../../Contexts/StateContext";
 import Header from "../../Components/Header";
 import { toast } from 'react-toastify';
 import TeamCard from "../../Components/TeamCard";
+import { BallTriangle } from 'react-loader-spinner';
 
 import { Container, Main, Label } from "./styled"
+import { Loading } from '../Home/styled';
 
 
 const Teams = () => {
     const { reloadPage, setReloadPage, setHandlerModalTeam } = useContext(StateContext);
     const { token } = JSON.parse(localStorage.getItem('userData'));
     const [dataTeams, setDataTeams] = useState(null);
-    
+
     useEffect(() => {
         const teams = async () => {
             try {
@@ -28,9 +30,28 @@ const Teams = () => {
         teams();
     }, [token, reloadPage]);
 
+    if (!token) {
+        return (
+            <></>
+        );
+    }
+
     if (dataTeams === null) {
         return (
-            <>carregando</>
+            <Container>
+                <Main>
+                    <Header />
+                    <Loading>
+                        <span>
+                            <BallTriangle
+                                height={120}
+                                width={120}
+                                color="#451264"
+                            />
+                        </span>
+                    </Loading>
+                </Main>
+            </Container>
         );
     }
 

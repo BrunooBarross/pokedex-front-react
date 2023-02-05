@@ -63,9 +63,23 @@ const Search = styled.div`
     }
 `;
 
+const Loading = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+   
+   span{
+        height: 250px;
+   }
+`;
+
+
 export {
     Container,
     Main,
     CardsGrid,
-    Search
+    Search,
+    Loading
 }
