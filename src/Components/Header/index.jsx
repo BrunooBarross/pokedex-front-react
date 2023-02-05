@@ -52,6 +52,10 @@ const Header = () => {
                 <li onClick={() => { navigateTeams() }}><ion-icon name="document-outline"></ion-icon>
                     TEAMS
                 </li>
+                <li onClick={() => setHandlerModalTeam(true)}>
+                    <ion-icon name="add-circle-outline"></ion-icon>
+                    ADD TEAM
+                </li>
             </Ul>
             <ImageUser
                 src={imageUrl}

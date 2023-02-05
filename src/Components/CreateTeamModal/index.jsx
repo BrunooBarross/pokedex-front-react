@@ -12,7 +12,7 @@ import {
 } from "./styled"
 
 const CreateTeamModal = ({ handlerModalTeam, setHandlerModalTeam }) => {
-    const { reloadPage, setReloadPage } = useContext(StateContext);
+    const { reloadPage, setReloadPage, handlerListTeam } = useContext(StateContext);
     const { token } = JSON.parse(localStorage.getItem('userData'));
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
@@ -36,10 +36,8 @@ const CreateTeamModal = ({ handlerModalTeam, setHandlerModalTeam }) => {
             setReloadPage(!reloadPage);
             toast.success("Team successfully added");
             setHandlerModalTeam(false);
-            let pathname = window.location.pathname;
             setReloadPage()
-            const finalUrl = pathname.slice(pathname.length - 4);
-            if (finalUrl === "info"){
+            if (handlerListTeam){
                 return;
             }
             navigate('/teams');

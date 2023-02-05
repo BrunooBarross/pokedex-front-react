@@ -79,6 +79,7 @@ const ListTeamsModal = ({ pokemonId, handlerListTeam, setHandlerListTeam, specie
                                         speciesTeam={team.Pokemons}
                                         loadPage={loadPage} 
                                         setLoadPage={setLoadPage}
+                                        setHandlerListTeam={setHandlerListTeam}
                                     />
                                 ))
                             }

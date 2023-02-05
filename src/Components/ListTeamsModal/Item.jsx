@@ -8,7 +8,7 @@ import {
     DivItem
 } from "./styled"
 
-const Item = ({ token, pokemonId, length, title, teamId, species, speciesTeam, loadPage, setLoadPage }) => {
+const Item = ({ token, pokemonId, length, title, teamId, species, speciesTeam, loadPage, setLoadPage, setHandlerListTeam }) => {
     const navigate = useNavigate();
     const [hasSpecie, setHasSpecie] = useState(false);
    
@@ -35,6 +35,7 @@ const Item = ({ token, pokemonId, length, title, teamId, species, speciesTeam, l
             setTimeout(() => {
                 let dialog = window.confirm('press "OK" to view teams page or "CANCEL" to continue adding');
                 if(dialog){
+                    setHandlerListTeam(false);
                     navigate('/teams');
                 }
               }, "200")
