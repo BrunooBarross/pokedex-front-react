@@ -81,6 +81,7 @@ const DivItem = styled.div`
 
 
 const NoTeam = styled.form`
+    text-align: center;
     margin-top: 60px;
     span{
         cursor: pointer;
