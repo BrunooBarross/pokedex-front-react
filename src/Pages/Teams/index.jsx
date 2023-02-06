@@ -39,8 +39,8 @@ const Teams = () => {
     if (dataTeams === null) {
         return (
             <Container>
+                 <Header />
                 <Main>
-                    <Header />
                     <Loading>
                         <span>
                             <BallTriangle

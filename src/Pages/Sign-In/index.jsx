@@ -25,7 +25,7 @@ const SignIn = () => {
             navigate('/home');
         } catch (error) {
             if (error.response.status === 404) {
-                toast.error("System unavailable!");
+                toast.error("Email not found");
             }
             if (error.response.status === 422 || error.response.status === 401) {
                 toast.error("Incorrect email or password");
@@ -33,9 +33,10 @@ const SignIn = () => {
             setLoad(false);
         }
     }
+    
     return (
         <Container>
-            <Audio src={`${audio}`} autoPlay controls></Audio>
+            <Audio id="player" src={`${audio}`} autoPlay controls></Audio>
             <FormSignIn
                 data={data}
                 setData={setData}

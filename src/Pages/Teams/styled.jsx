@@ -71,6 +71,8 @@ const Main = styled.div`
 `;
 
 const Label = styled.label`
+    margin: 5px;
+    text-align: center;
     margin-top: 200px;
     font-size: 20px;
 

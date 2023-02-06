@@ -44,7 +44,7 @@ const ListTeamsModal = ({ pokemonId, handlerListTeam, setHandlerListTeam, specie
 
     if (dataTeams === null) {
         return (
-            <>Carregando...</>
+            <></>
         );
     }
 
