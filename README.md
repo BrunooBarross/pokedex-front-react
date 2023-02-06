@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">
-    Pokédex -  Bruno Barros
+    Pokédex -  Cresce.ai
   </h1>
 </p>
 
